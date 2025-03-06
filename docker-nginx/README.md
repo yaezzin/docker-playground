@@ -9,17 +9,22 @@
 
 ```Docker Container```
 - 이미지를 통해 만들어진 하나의 인스턴스
-- 도커파일을 빌드하면 도커 이미지가 생성되고, 이 이미지를 실행하면 도커 컨테이너가 생성됨
+- 도커파일 빌드 ➡ 도커 이미지 생성 ➡ 이미지 실행 ➡ 도커 컨테이너 생성
 
+## Command
 
-## How to Run
-```
-# docker 컨테이너 이미지 생성
-$ docker build -t nginx:simple-nginx .
+| 명령어 설명                      | 명령어                                      |
+|---------------------------------|--------------------------------------------|
+| 컨테이너 생성 (Create Container) | `docker create --name <container-name> <image-name>` |
+| 컨테이너 시작 (Start Container)  | `docker start <container-id/name>`         |
+| 컨테이너 실행 (Run Container)    | `docker run -it -d --name <container-name> <image-name> bash` |
+| 컨테이너 일시 정지 (Pause Container) | `docker pause <container-id/name>`      |
+| 컨테이너 재개 (Unpause Container) | `docker unpause <container-id/name>`    |
+| 컨테이너 중지 (Stop Container)   | `docker stop <container-id/name>`         |
+| 컨테이너 재시작 (Restart Container) | `docker restart <container-id/name>`   |
+| 컨테이너 종료 (Kill Container)   | `docker kill <container-id/name>`         |
+| 컨테이너 제거 (Remove Container) | `docker rm <container-id/name>`           |
 
-# docker 컨테이너 생성 및 실행
-$ docker run -d -p 8080:80 --name simple-nginx nginx:simple-nginx
-```
 
 ## Result 
 <img width="413" alt="스크린샷 2025-03-06 오후 5 29 35" src="https://github.com/user-attachments/assets/56ac4cd2-8eee-4feb-8290-d2eaf4099df6" />
