@@ -14,3 +14,9 @@ $ docker build -t docker-spring .
 $ docker run -d --name docker-spring -p 8080:80 docker-spring
 ```
 
+## [docker-compose](https://github.com/yaezzin/docker-playground/tree/main/docker-compose)
+
+```
+$ docker compose up --build
+$ docker exec -it docker-practice-db mysql -u root -p
+```
