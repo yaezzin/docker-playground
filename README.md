@@ -21,6 +21,12 @@ $ docker compose up --build
 $ docker exec -it docker-practice-db mysql -u root -p
 ```
 
+## [docker-compose-prometheus-grafana](https://github.com/yaezzin/docker-playground/tree/main/docker-compose-prometheus-grafana)
+
+```
+$ docker compose up --build 
+```
+
 ## [docker-ci](https://github.com/yaezzin/docker-playground/tree/main/docker-ci)
 
 ```
