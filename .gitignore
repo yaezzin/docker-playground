@@ -4,6 +4,10 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+<<<<<<< HEAD
+=======
+.env
+>>>>>>> c69d347 (commit)
 
 ### STS ###
 .apt_generated
