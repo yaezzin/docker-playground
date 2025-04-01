@@ -74,5 +74,3 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/release-tag:${{ env.NEW_TAG }}
-
-
