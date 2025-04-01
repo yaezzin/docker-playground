@@ -50,7 +50,7 @@ jobs:
 
       - name: create Tag
         id: created_tag
-        runs: |
+        run: |
           if [[ "${{ env.NEW_TAG }}" != "" ]]; then
              echo "Using version tag: ${{ env.NEW_TAG }}"
              echo "TAG=${{ env.NEW_TAG }}" >> $GITHUB_ENV
@@ -58,6 +58,7 @@ jobs:
              TIMESTAMP=$(date '+%s')
              echo "Using timestamp tag: $TIMESTAMP"
              echo "TAG=$TIMESTAMP" >> $GITHUB_ENV
+          fi
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
