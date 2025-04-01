@@ -71,3 +71,4 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.GITHUB_ENV }}
             ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:latest
+
