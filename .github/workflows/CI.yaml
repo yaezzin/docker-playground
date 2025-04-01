@@ -32,7 +32,7 @@ jobs:
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 여기 토큰은 래포토큰인듯?
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: false
           release_branches: main
 
@@ -42,8 +42,10 @@ jobs:
           echo "NEW_TAG=${{ steps.tag_version.outputs.new_tag }}" >> $GITHUB_ENV
 
       - name: Create a GitHub release
+        if: ${{ env.NEW_TAG != '' }}
         uses: ncipollo/release-action@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
