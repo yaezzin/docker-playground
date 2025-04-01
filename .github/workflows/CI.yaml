@@ -62,6 +62,10 @@ jobs:
              echo "TAG=$TIMESTAMP" >> $GITHUB_ENV
           fi
 
+      - name: Check NEW_TAG value
+        run: | 
+          echo "NEW_TAG=${{ env.NEW_TAG }}"
+
       - name: Build and push Docker image
         if: ${{ env.NEW_TAG != '' }}
         uses: docker/build-push-action@v5
@@ -69,6 +73,6 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.GITHUB_ENV }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.env.NEW_TAG }}
 
 
