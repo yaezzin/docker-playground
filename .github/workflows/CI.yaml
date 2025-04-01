@@ -63,13 +63,12 @@ jobs:
           fi
 
       - name: Build and push Docker image
+        if: ${{ env.NEW_TAG != '' }}
         uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.GITHUB_ENV }}
-            ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.GITHUB_ENV }}
 
 
