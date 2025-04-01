@@ -73,6 +73,6 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/docker-release-tag:${{ env.env.NEW_TAG }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/release-tag:${{ env.NEW_TAG }}
 
 
