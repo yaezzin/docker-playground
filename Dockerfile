@@ -1,7 +1,19 @@
-FROM openjdk:17-jdk-slim
+FROM bellsoft/liberica-openjdk-alpine:17 AS builder
 
 WORKDIR /app
 
-COPY build/libs/release-tag-0.0.1-SNAPSHOT.jar app.jar
+COPY . .
 
-CMD ["java", "-jar", "app.jar"]
+RUN ./gradlew clean build -x test
+
+# Run stage
+
+FROM bellsoft/liberica-openjdk-alpine:17
+
+WORKDIR /app
+
+COPY --from=builder /app/build/libs/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","app.jar"]
